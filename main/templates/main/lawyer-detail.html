@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ lawyer.image.url }}" alt="{{ lawyer.name }} Image" class="img-fluid">
+        </div>
+        <div class="col-md-8">
+            <h1>{{ lawyer.name }}</h1>
+            <h3>{{ lawyer.job_title }}</h3>
+            <p><strong>Освіта:</strong> {{ lawyer.education }}</p>
+            <p><strong>Сертифікат адвоката:</strong> {{ lawyer.attorney_certificate }}</p>
+            <p><strong>Біографія:</strong> {{ lawyer.biography }}</p>
+            <p><strong>CV:</strong> <a href="{{ lawyer.cv.url }}" target="_blank">Download CV</a></p>
+            <a href="{% url 'lawyers' %}" target="_blank" class="btn btn-primary">Назад </a>
+            <a href="{{ lawyer.Extract.url }}" target="_blank" class="btn btn-primary">ВИТЯГ З РЕЄСТРУ АДВОКАТІВ </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

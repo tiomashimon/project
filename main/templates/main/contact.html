@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %}
+
+{% block body %}
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 text-center">
+      <h2>ДОВІРЯЙТЕ ВИРІШЕННЯ ВАШИХ ПРОБЛЕМ НАШІЙ КОМАНДІ!</h2>
+      <address>
+        <strong>Адреса</strong><br>
+        вул. Борканюка, 37, Виноградів<br>
+        Закарпатська область, 90300, Україна
+      </address>
+    </div>
+    <div class="col-md-6 text-center">
+      <h2>Зв'яжіться з нами</h2>
+      <p>Email: <a href="mailto:advokat@nechaev.in.ua">advokat@nechaev.in.ua</a></p>
+      <p>Телефон:</p>
+      <ul>
+        <li>+38 (050) 186-23-34</li>
+        <li>+38 (03143) 2-71-00 (стац./факс)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <form method="post" class="mt-4 mx-auto">
+        {% csrf_token %}
+
+        <div class="form-group">
+          <input type="text" class="form-control" id="{{ contact_form.name.id_for_label }}" name="{{ contact_form.name.name }}" placeholder="Імя">
+        </div>
+
+        <div class="form-group">
+          <input type="email" class="form-control" id="{{ contact_form.email.id_for_label }}" name="{{ contact_form.email.name }}" placeholder="Email">
+        </div>
+
+        <div class="form-group">
+          <input type="tel" class="form-control" id="{{ contact_form.phone_number.id_for_label }}" name="{{ contact_form.phone_number.name }}" placeholder="Номер телефону">
+        </div>
+
+        <div class="form-group">
+          <textarea class="form-control" id="{{ contact_form.message.id_for_label }}" name="{{ contact_form.message.name }}" rows="4" placeholder="Повідомлення"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Відправити</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

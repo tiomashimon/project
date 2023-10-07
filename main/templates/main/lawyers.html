@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        {% for lawyer in lawyers %}
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <a href="{% url 'lawyer' lawyer.id %}"><img src="{{ lawyer.image.url }}" class="card-img-top" alt="{{ lawyer.name }} Image"></a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ lawyer.name }}</h5>
+                    <p class="card-text"><strong>Посада:</strong> {{ lawyer.job_title }}</p>
+                    <p class="card-text"><strong>Біографія:</strong> {{ lawyer.biography }}</p>
+                    <p class="card-text"><strong>Освіта:</strong> {{ lawyer.education }}</p>
+                    <p class="card-text"><strong>Атестат адвоката:</strong> {{ lawyer.attorney_certificate }}</p>
+                    <a href="{{ lawyer.cv.url }}" target="_blank" class="btn btn-primary">Завантажити CV</a>
+                    <a href="{ url 'home' }" target="_blank" class="btn btn-primary">Назад </a>
+                    <a href="{{ lawyer.Extract.url }}" target="_blank" class="btn btn-primary">ВИТЯГ З РЕЄСТРУ АДВОКАТІВ </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

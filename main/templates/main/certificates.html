@@ -1,0 +1,34 @@
+{% extends 'main/base.html' %}
+{% block body %}
+<style>
+    .carousel-cell {
+  width: 100%;
+  height: 400px; /* Змініть висоту на ваш власний розмір */
+  margin-right: 10px; /* Відступ між фотографіями */
+  background: #ccc; /* Фон для невидимих частин фотографій */
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-cell img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script>
+
+<div class="carousel" data-flickity='{ "wrapAround": true, "pageDots": false, "imagesLoaded": true }'>
+    {% for certificate in certificates %}
+    <div class="carousel-cell">
+        <img src="{{ certificate.certificate_link.url }}" alt="Certificate">
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

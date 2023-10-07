@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        {% for tv_show in tv_shows %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ tv_show.title }}</h5>
+                    <p class="card-text">{{ tv_show.short }}</p>
+                    <a href="{{ tv_show.video }}" class="btn btn-primary">Переглянути відео</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
