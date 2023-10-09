@@ -4,7 +4,12 @@ from . import forms
 
 
 def home(request):
-    return render(request, 'main/home.html')
+    form = forms.ContactForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('home')
+    lawyers_list = LawyerModel.objects.all()
+    return render(request, 'main/home.html', {'contact_form': form, "lawyers": lawyers_list})
 
 
 def services(request):

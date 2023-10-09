@@ -3,13 +3,14 @@
 <div class="container">
     <div class="row">
         {% for tv_show in tv_shows %}
-        <div class="col-md-4">
+        <div class="col-md-6" > <!-- Збільшення розміру карточок на половину екрану -->
             <div class="card mb-4">
-
                 <div class="card-body">
                     <h5 class="card-title">{{ tv_show.title }}</h5>
                     <p class="card-text">{{ tv_show.short }}</p>
-                    <a href="{{ tv_show.video }}" class="btn btn-primary">Переглянути відео</a>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="{{ tv_show.video }}"></iframe>
+                    </div>
                 </div>
             </div>
         </div>

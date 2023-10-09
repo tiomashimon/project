@@ -13,9 +13,9 @@
                     <p class="card-text"><strong>Біографія:</strong> {{ lawyer.biography }}</p>
                     <p class="card-text"><strong>Освіта:</strong> {{ lawyer.education }}</p>
                     <p class="card-text"><strong>Атестат адвоката:</strong> {{ lawyer.attorney_certificate }}</p>
-                    <a href="{{ lawyer.cv.url }}" target="_blank" class="btn btn-primary">Завантажити CV</a>
-                    <a href="{ url 'home' }" target="_blank" class="btn btn-primary">Назад </a>
-                    <a href="{{ lawyer.Extract.url }}" target="_blank" class="btn btn-primary">ВИТЯГ З РЕЄСТРУ АДВОКАТІВ </a>
+                    <a href="{{ lawyer.cv.url }}" download="resume.pdf" class="btn btn-primary" style="margin:3px">Завантажити CV</a>
+                    <a href="{ url 'home' }"   target="_blank" class="btn btn-primary" style="margin:3px">Назад </a>
+                    <a href="{{ lawyer.Extract.url }}" target="_blank" class="btn btn-primary" style="margin:3px">ВИТЯГ З РЕЄСТРУ АДВОКАТІВ </a>
                 </div>
             </div>
         </div>

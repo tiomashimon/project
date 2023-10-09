@@ -16,9 +16,13 @@ class LawyerModel(models.Model):
     image = models.ImageField(upload_to='images/%y/%m/%d')
     cv = models.FileField()
     Extract = models.CharField(max_length=150, default='default')
+    quote = models.CharField(max_length=100, blank=True)
 
 
 class TVModel(models.Model):
+
+    def __str__(self):
+        return self.title
     title = models.CharField(max_length=100)
     short = models.CharField(max_length=100)
     video = models.CharField(max_length=500)
