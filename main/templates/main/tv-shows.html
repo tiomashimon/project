@@ -1,15 +1,17 @@
 {% extends 'main/base.html' %}
+{% block title %}Телепередачі{% endblock %}
 {% block body %}
 <div class="container">
     <div class="row">
-        {% for tv_show in tv_shows %}
-        <div class="col-md-6" > <!-- Збільшення розміру карточок на половину екрану -->
+        {% for video_data in tv_shows %}
+        <div class="col-md-6">
             <div class="card mb-4">
                 <div class="card-body">
-                    <h5 class="card-title">{{ tv_show.title }}</h5>
-                    <p class="card-text">{{ tv_show.short }}</p>
+                    <h5 class="card-title">{{ video_data.title }}</h5>
+                    <p class="card-text">{{ video_data.short }}</p>  <!-- Добавление short -->
+                    <p class="card-text">{{ video_data.description }}</p>
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="{{ tv_show.video }}"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_data.video }}" title="{{ video_data.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
